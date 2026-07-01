@@ -18,7 +18,8 @@ from reportlab.lib.units import inch
 from reportlab.lib import colors
 
 load_dotenv()
-genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
+api_key = os.getenv("GOOGLE_API_KEY") or st.secrets.get("GOOGLE_API_KEY")
+genai.configure(api_key=api_key)
 
 st.set_page_config(page_title="DocuChat AI", page_icon="🤖", layout="wide")
 
